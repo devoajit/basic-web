@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests</title>
+  </head>
+  <body>
+    <script>
+     function timeoutTest(){
+       let array = [1, 2, 3, 4, 5];
+      setTimeout(()=>{
+        for(let i = 0; i<5; i++){
+          console.log(array[i])
+        }
+      },5000);
+     }
+     //find the greatest and the smallest Number
+     function findgreat(){
+       let numbers = [4536, 4892, 4970, 4452];
+       //lets start from the first digit from left hand side
+       let checker = 0;
+       numbers.forEach((item, index)=>{
+         //lets compare the first number with the second the big one index will be stored in a variable
+         if(checker<item){
+           checker = item;
+         }
+       })
+       document.write(`${checker} is the biggest number in the list and ${numbers.indexOf(checker)+1} position of list`)
+     }
+    // findgreat();
+    const ramans = {
+      "Apples":{
+        "price": 40,
+        "sale": 2457
+      },
+      "Ajit":{
+        "price":400,
+        "sale": 6252
+      },
+      "Oranges":{
+        "price":30,
+        "sale":3004
+      },
+      "Combs":{
+        "price":3,
+        "sale":22760
+      },
+      "Toth Brush":{
+        "price":10,
+        "sale":25367
+      },
+      "Pencils":{
+        "price":1,
+        "sale":38530
+      },
+      "Notebooks":{
+        "price":6,
+        "sale":40002
+      },
+      "Soap Cakes":{
+        "price":8,
+        "sale":20005
+      }
+    }
+    function processJSON(){
+    document.write('<table border=1><tr><td>item</td><td>rate</td><td>Quntity</td><td>Amount</td></tr>')
+    for(let x in ramans){
+      //document.write(`Total sale of ${x} in the whole year was ${ramans[x].sale} which cost Rs. ${ramans[x].price*ramans[x].sale} <br>`)
+    //  document.write(ramans[x].sale)
+    document.write(`<tr><td>${x}</td><td>${ramans[x].price}</td><td>${ramans[x].sale}</td><td>Rs. ${ramans[x].price*ramans[x].sale}</td></tr>`)
+    }
+    document.write('</table>')
+    
+    let table = document.querySelector('table')
+    table.style.textTransform = "uppercase";
+    table.style.textAlign = 'center';
+    table.style.width = "100%"
+   // table.firstChild.style.fontWeight = "bolder"
+   table.firstChild.firstChild.style.fontWeight = "bolder"
+    }
+    processJSON();
+    findgreat();
+    </script>
+  </body>
+</html>
