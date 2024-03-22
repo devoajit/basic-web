@@ -10,6 +10,17 @@
   <script>
     h1 = document.createElement('h1');
     h1.textContent = "hello"
+    document.body.appendChild(h1)
+
+    h1.addEventListener('click',()=>{
+      p = document.createElement('p');
+      p.textContent = "You mother fuckers. I will surely kill you bastards.";
+      document.body.appendChild(p)
+      p.addEventListener('click',function(){
+        alert('You clicked on '+ document.querySelectorAll('p').length)
+      })
+    })
   </script>
 </body>
 </html>
+<!--Leaning DOM Here - https://www.youtube.com/watch?v=5fb2aPlgoys -->
