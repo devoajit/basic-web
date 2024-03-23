@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+    <style>
+        .container{
+            width: 100%;
+            text-align: center;
+        }
+        .title{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 25px;
+            text-transform: uppercase;
+        }
+        .task_input_box{
+            display: flex;
+            justify-content: center;
+        }
+        #task_input{
+            width: 65%;
+            height: 25px;
+            border-radius: 20px;
+            border: 2px solid black;
+            padding-left: 15px;
+        }
+        #add_btn{
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+            border: none;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid black;
+            color: black;
+            width: 31px;
+            height: 31px;
+            margin-left: 10px;
+        }
+
+        .tasks{
+            margin-top:35px;
+        }
+
+        .tasks h2{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 100;
+            font-size:20px;
+            text-align: left;
+            color: grey;
+            border-bottom: 2px dashed black;
+            padding-bottom:5px;
+        }
+
+        .task{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .task_detail{
+            margin: 0;
+            font-size: 16px;
+            text-align: left;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-style: italic;
+        }
+        .delete_btn{
+            width: 25px;
+            height: 15px;
+        }
+        @media only screen and (min-width: 500px) {
+            .container{
+                width: 500px;
+                /* background-color: blanchedalmond; */
+                height: 600px;
+                margin: auto;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>ToDo App</h1>
+        </div>
+        <div class="task_input_box">
+            <input type="text" id="task_input" placeholder="What you want to do today?">
+            <button id="add_btn">+</button>
+        </div>
+        <div class="tasks">
+            <h2>All Tasks</h2>
+            <div class="task">
+                <p class="task_detail">Demo task is this one</p>
+                <img class="delete_btn" src="icons/delete.png" alt="delete button">
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        document.getElementById('add_btn').addEventListener('click',()=>{
+            let task = document.getElementById('task_input').value;
+            let task_div = document.createElement('div');
+            task_div.setAttribute('class','task');
+            //we will create task details here
+            task_p = document.createElement('p');
+            task_p.setAttribute('class','task_detail')
+            task_p.textContent = task;
+            //delete button
+            task_dlt_btn = document.createElement('img');
+            task_dlt_btn.setAttribute('class','delete_btn');
+            task_dlt_btn.setAttribute('src','icons/delete.png')
+
+            //attach all to tasks
+            document.querySelector('.tasks').appendChild(task_div);
+            task_div.appendChild(task_p);
+            task_div.appendChild(task_dlt_btn);
+        })
+    </script>
+</body>
+</html>
