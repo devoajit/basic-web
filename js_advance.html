@@ -5,8 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Advance JS</title>
+  <style>
+    #add_btn{
+      border-radius: 50%;
+      height: 60px;
+      width: 60px;
+      text-align: center;
+      background: red;
+      color: white;
+      margin: auto;
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
+  <!--button hide and show texy box with focus-->
+  <button id="add_btn">+</button>
   <script>
     h1 = document.createElement('h1');
     h1.textContent = "hello"
@@ -20,6 +36,18 @@
         alert('You clicked on '+ document.querySelectorAll('p').length)
       })
     })
+    let add_btn = document.getElementById('add_btn');
+    add_btn.onclick = function(){
+      this.style.display = 'none';
+      showTextBox();
+    }
+    function showTextBox(){
+     let taskBox = document.createElement('input');
+     taskBox.type = "text";
+     taskBox.id = 'taskBox';
+     
+    }
+    document.body.firstChild.innerHTML = "hello lele"
   </script>
 </body>
 </html>

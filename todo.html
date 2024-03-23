@@ -101,13 +101,18 @@
     </div>
     <script>
         document.getElementById('add_btn').addEventListener('click',()=>{
-            let task = document.getElementById('task_input').value;
+            let task_box= document.getElementById('task_input');
             let task_div = document.createElement('div');
             task_div.setAttribute('class','task');
+            //checkbox for task
+            let checkbox = document.createElement('input');
+            checkbox.setAttribute('type','checkbox');
+            checkbox.setAttribute('class','done');
+            
             //we will create task details here
             task_p = document.createElement('p');
             task_p.setAttribute('class','task_detail')
-            task_p.textContent = task;
+            task_p.textContent = task_box.value;
             //delete button
             task_dlt_btn = document.createElement('img');
             task_dlt_btn.setAttribute('class','delete_btn');
@@ -115,8 +120,12 @@
 
             //attach all to tasks
             document.querySelector('.tasks').appendChild(task_div);
+            task_div.appendChild(checkbox);
             task_div.appendChild(task_p);
             task_div.appendChild(task_dlt_btn);
+            
+            //clear task value input
+            task_box.value = '';
         })
     </script>
 </body>
