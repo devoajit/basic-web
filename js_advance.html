@@ -18,6 +18,14 @@
       font-size: 20px;
       font-weight: bold;
     }
+    #taskBox{
+      width: 300px;
+      height: 25px;
+      margin: auto;
+      display: block;
+      border: black 2px solid;
+      border-radius: 20px;
+    }
   </style>
 </head>
 <body>
@@ -45,9 +53,10 @@
      let taskBox = document.createElement('input');
      taskBox.type = "text";
      taskBox.id = 'taskBox';
-     
+     taskBox.placeholder = "Add something better";
+     document.body.insertBefore(taskBox,document.body.children[0]);
     }
-    document.body.firstChild.innerHTML = "hello lele"
+    
   </script>
 </body>
 </html>
