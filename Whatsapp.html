@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Message Button</title>
+  <style>
+  body{
+    background:#F9F7F3;
+  }
+  header{
+    display: flex;
+  }
+    .logo{
+      width: 70px;
+    }
+    header h1{
+      font-family: Arial;
+      margin-left: 20px;
+      color: darkgreen;
+      font-weight: 500;
+    }
+    .contact{
+      margin: 5px;
+      height: 50px;
+      border-radius: 2px;
+      box-shadow: 0 0 2px black;
+      margin-top: 20px;
+    }
+    
+    .contact{
+      display: flex;
+    }
+    .code{
+      width: 150px;
+    }
+    .code, .contact_num{
+      height: 100%;
+      border: none;
+      background-color: transparent;
+    }
+    .contact_num{
+      flex-grow: 1;
+    }
+    
+    .message{
+      border-radius: 2px;
+      box-shadow: 0 0 2px black;
+      margin: 20px 5px;
+      height: 250px;
+      padding: 10px;
+    }
+    .send{
+      width: 100px;
+      background-color: #00CA5A;
+      height: 50px;
+      box-shadow: 0 0 2px black;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      color:white;
+      float: right;
+      margin-right:5px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <img src="icons/WhatsApp_icon.png" alt="" class="logo">
+    <h1>WhastApp Direct</h1>
+  </header>
+  <div class="contact">
+    <select name="code" id="code" class="code">
+      <option value="1">US (+1)</option>
+      <option value="44">UK (+44)</option>
+      <option value="91" selected>IN (+91)</option>
+    </select>
+    <input type="number" class="contact_num" maxlength="10" placeholder="Enter phone number">
+  </div>
+  <div class="message" contenteditable="true" onclick="this.innerText=''">
+    Message here...
+  </div>
+  <button class="send" id="whatsappButton">Send</button>
+</div>
+<script>
+  document.getElementById("whatsappButton").addEventListener("click", function() {
+    // Replace the phone number and message with your desired values
+    var phoneNumber = document.querySelector('.contact_num').value;
+    var message = document.querySelector('.message').innerText;
+    
+    // Encode message for URL
+    var encodedMessage = encodeURIComponent(message);
+    
+    // Construct the WhatsApp URL
+    var whatsappUrl = "whatsapp://send?phone=" + document.getElementById('code').value + phoneNumber + "&text=" + encodedMessage;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl);
+  });
+</script>
+
+</body>
+</html>
